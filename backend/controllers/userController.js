@@ -36,6 +36,43 @@ const loginUser = async (req,res) => {
 
 }
 
+// Route for edit user
+const editUser = async (req, res) => { 
+  try {
+    const { name, email } = req.body;
+    const exists = await userModel.findOne({ email });
+    if (!exists) {
+      return res.json({success:false,message:"User does not exists"})
+    }
+
+    if (exists.name === name) {
+      return res.json({success:false,message:"Name cannot be same as previous"})
+    }
+    
+    const response = await userModel.findByIdAndUpdate(exists._id, {name})
+    if (response) {
+      res.json({success:true,message:"User edited successfully"})
+    } else {
+      res.json({success:false,message:"User edited failed"})
+    }
+  } catch (error) {
+    console.error(error);
+    res.json({success:false,message:error.message})
+  }
+}
+
+//Route for get user info
+const getUserInfo = async (req,res) => { 
+  try {
+    const { userId } = req.body;
+    const user = await userModel.findById(userId);
+    res.json({success:true,data:user.email})
+  } catch (error) {
+    console.error(error);
+    res.json({success:false,message:error.message})    
+  }
+}
+
 // Route for user register
 const registerUser = async (req,res) => { 
   try {
@@ -92,4 +129,4 @@ const adminLogin = async (req, res) => {
   }
 }
 
-export {loginUser, registerUser,adminLogin}
+export {loginUser, registerUser,adminLogin,editUser,getUserInfo}
