@@ -75,6 +75,8 @@ import stripe_logo from './stripe_logo.png'
 import cross_icon from './cross_icon.png'
 import visibility from "./visibility.png"
 import visibilityOff from "./visibility_off.png"
+import sizeChart from "./sizeChart.png"
+import nikeChart from "./nike-size-chart.webp"
 
 export const assets = {
     logo,
@@ -97,6 +99,8 @@ export const assets = {
     cross_icon,
     visibility,
     visibilityOff,
+    sizeChart,
+    nikeChart,
 }
 
 export const products = [

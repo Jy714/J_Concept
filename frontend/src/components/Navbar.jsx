@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { assets } from "../assets/assets"
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext';
@@ -7,6 +7,9 @@ const Navbar = () => {
 
   const [visible, setVisible] = useState(false);
   const { setShowSearch, getCartCount, token, setToken, setCartItems, navigate } = useContext(ShopContext);
+
+  const JName = localStorage.getItem("JCONCEPTName")
+
   
 
   const logout = () => { 
@@ -44,7 +47,13 @@ const Navbar = () => {
         <img src={assets.search_icon} alt="search" className='w-5 cursor-pointer' onClick={()=>setShowSearch(true)} />
         
         <div className='group relative'>
-          <img onClick={()=> token ? null : navigate("/login")} src={assets.profile_icon} alt="profile" className='w-5 cursor-pointer' />
+          <div className='flex gap-3 cursor-pointer'>
+            <img onClick={() => token ? null : navigate("/login")} src={assets.profile_icon} alt="profile" className='w-5' />
+          {token &&
+            <p>
+              {JName}
+            </p>}
+          </div>
           {/* Dropdown Menu */}
           {
             token &&

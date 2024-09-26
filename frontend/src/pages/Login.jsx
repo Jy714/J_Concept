@@ -24,6 +24,7 @@ const Login = () => {
           localStorage.setItem("token", response.data.token);
           setEmail("");
           setPassword("");
+          localStorage.setItem("JCONCEPTName",response.data.data)
           toast.success("Welcome back " + response.data.data);
         } else {
           toast.error(response.data.message)

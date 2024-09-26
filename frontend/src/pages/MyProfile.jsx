@@ -30,7 +30,7 @@ const MyProfile = () => {
       const response = await axios.post(backendUrl+ "/api/user/edit", {name,email})
       
       if (response.data.success) {
-        toast.success(response.data.message);
+        toast.success(response.data.message +" Please login again to see the name changes");
       } else {
         toast.error(response.data.message)
       }

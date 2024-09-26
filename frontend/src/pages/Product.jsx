@@ -11,7 +11,8 @@ const Product = () => {
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
-  const [box,setBox] = useState("desc")
+  const [box, setBox] = useState("desc");
+  const [chartOpen, setChartOpen] = useState(false);
 
   const fetchProductData = async () => { 
     products.map((item) => { 
@@ -28,7 +29,7 @@ const Product = () => {
   },[productId,products])
 
   return productData ?  (
-    <div className='border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100'>
+    <div className='border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100 relative'>
       {/* Product Data */}
       <div className='flex gap-12 sm:gap-12 flex-col sm:flex-row'>
 
@@ -59,7 +60,14 @@ const Product = () => {
           </div>
           <p className='mt-5 text-3xl font-medium'>{currency} {productData.price}</p>
           <p className='mt-5 text-gray-500 md:w-4/5'>{productData.description}</p>
-          <div className='flex flex-col gap-4 my-8'>
+
+          {/* Size chart */}
+          <div className='mt-3 flex gap-1 aligns-center cursor-pointer' onClick={() => { setChartOpen(true)}}>
+            <img src={assets.sizeChart} alt="size" className='w-6' />
+            <p className='text-blue-700 underline'>Size Chart</p>
+          </div>
+
+          <div className='flex flex-col gap-4 my-4'>
             <p>Select Size</p>
             <div className='flex gap-2'>
               {productData.sizes.map((item,index)=>(
@@ -102,7 +110,23 @@ const Product = () => {
       </div>
 
       {/* Display related products */}
-      <RelatedProducts category={productData.category} subCategory={productData.subCategory} id={productData._id } />
+      <RelatedProducts category={productData.category} subCategory={productData.subCategory} id={productData._id} />
+      
+      {/* Size chart */}
+      {
+        chartOpen ? 
+          <div className=' absolute w-[50%] bg-gray-500 top-10 right-[50%] translate-x-[50%] h-[35%]'>
+            <div className='p-4'>
+              <div className='flex justify-between text-3xl text-white items-center'>
+              <h1 className='font-semibold'>Size guides</h1>
+              <p onClick={()=>setChartOpen(false)} className='cursor-pointer hover:bg-slate-100/[0.4] py-1 px-2 rounded'>X</p>
+              </div>
+              <hr className='my-2' />
+              <img src={assets.nikeChart} alt="" className='rounded-2xl mt-6' />
+            </div>
+          </div>
+          : ""
+          }
     </div>
   ) : <div className='opacity-0'></div>
 }
