@@ -62,7 +62,7 @@ const Product = () => {
           <p className='mt-5 text-gray-500 md:w-4/5'>{productData.description}</p>
 
           {/* Size chart */}
-          <div className='mt-3 flex gap-1 aligns-center cursor-pointer' onClick={() => { setChartOpen(true)}}>
+          <div className='hidden md:flex mt-3  gap-1 aligns-center cursor-pointer' onClick={() => { setChartOpen(true)}}>
             <img src={assets.sizeChart} alt="size" className='w-6' />
             <p className='text-blue-700 underline'>Size Chart</p>
           </div>
@@ -115,14 +115,14 @@ const Product = () => {
       {/* Size chart */}
       {
         chartOpen ? 
-          <div className=' absolute w-[50%] bg-gray-500 top-10 right-[50%] translate-x-[50%] h-[35%]'>
+          <div className=' absolute w-[50%] bg-gray-500 top-10 right-[50%] translate-x-[50%] h-[430px] xl:w-[600px] xl:h-[500px]'>
             <div className='p-4'>
               <div className='flex justify-between text-3xl text-white items-center'>
               <h1 className='font-semibold'>Size guides</h1>
               <p onClick={()=>setChartOpen(false)} className='cursor-pointer hover:bg-slate-100/[0.4] py-1 px-2 rounded'>X</p>
               </div>
               <hr className='my-2' />
-              <img src={assets.nikeChart} alt="" className='rounded-2xl mt-6' />
+              <img src={assets.nikeChart} alt="" className='rounded-2xl mt-6 h-[90%]' />
             </div>
           </div>
           : ""

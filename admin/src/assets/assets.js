@@ -1,4 +1,5 @@
-import logo from './logo.png'
+// import logo from './logo.png'
+import logo from './J_Concept_logo.png'
 import add_icon from './add_icon.png'
 import order_icon from './order_icon.png'
 import upload_area from './upload_area.png'

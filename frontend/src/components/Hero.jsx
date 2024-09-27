@@ -6,7 +6,7 @@ const Hero = () => {
     <div>
       <div className="w-full bg-pink-200">
         <Marquee className="py-3 text-gray-700 font-semibold text-sm overflow-x-hidden  text-nowrap"  speed={150} loop={0}>
-          ENJOY ADDITIONAL 20% OFF FOR ALL PRODUCT BY SUBSCRIBE US • FREE LOCAL SHIPPING WITH ORDERS ABOVE RM50
+          ENJOY ADDITIONAL 20% OFF FOR ALL PRODUCT BY SUBSCRIBE US NOW •
         </Marquee>
       </div>
 
@@ -18,7 +18,7 @@ const Hero = () => {
               <p className="w-8 md:w-11 h-[2px] bg-[#414141]"></p>
               <p className="font-medium text-sm md:text-base">OUR BESTSELLERS</p>
             </div>
-            <h1 className="text-3xl sm:py-3 lg:text-5xl leading-relaxed prata-regular ">Latest Arrivals</h1>
+            <h1 className="text-3xl sm:py-3 lg:text-5xl leading-relaxed prata-regular ">Medium Olive</h1>
             <div className="flex items-center gap-2">
               <p className="font-semibold text-sm md:text-base">SHOP NOW</p>
               <p className="w-8 md:w-11 h-[1px] bg-[#414141]"></p>

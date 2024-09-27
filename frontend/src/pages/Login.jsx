@@ -38,6 +38,7 @@ const Login = () => {
           setName("");
           setEmail("");
           setPassword("");
+          localStorage.setItem("JCONCEPTName",response.data.data)
           toast.success("Welcome to J_Concept " + response.data.data);
         } else {
           toast.error(response.data.message)
